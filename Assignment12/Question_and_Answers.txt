@@ -1,0 +1,146 @@
+1. What is the difference between global scope, local scope in JavaScript?
+
+Global Scope:
+		Variables and functions declared outside of any function or block have global scope.
+		Global variables and functions are accessible from anywhere in the code, including inside 		functions and blocks.
+		They persist throughout the lifetime of the program
+Local Scope:
+		Variables and functions declared inside a function or block have local scope.
+		They are accessible only within the function or block in which they are defined.
+		Local variables and functions can have the same name as global ones without causing 		conflicts because they are separate entities.
+
+2. Explain the concept of hoisting in JavaScript. How does it affect variable declarations?
+
+Hoisting is a JavaScript mechanism where variable and function declarations are moved to the top of their containing scope during the compilation phase, before the code is executed. This means that regardless of where variables and functions are declared within a scope, they are treated as if they were declared at the top of that scope.
+
+However, it's important to note that only the declarations are hoisted, not the initializations (assignments). Let's break down how hoisting affects variable declarations:
+
+Variable Declarations:
+When a variable is declared using the var keyword, the declaration is hoisted to the top of its containing function or global scope.
+The variable is initialized with the value undefined at the time of hoisting.
+If there are multiple declarations of the same variable within the same scope, only the first declaration is hoisted, and subsequent declarations are ignored.
+
+console.log(x); // undefined
+var x = 10;
+console.log(x); // 10
+
+The above code behaves as if it were interpreted like this:
+
+var x;
+console.log(x); // undefined
+x = 10;
+console.log(x); // 10
+
+
+3. Describe the scoping rules for variables declared with var, let, and const.
+
+var:
+	Variables declared with var have function-level scope or global scope if declared outside any function.
+They are hoisted to the top of their containing function or global scope, but their 	initialization remains in place.
+var variables can be re-declared within the same scope without throwing an error.
+They have a concept called "hoisting," where declarations are moved to the top of their 	containing scope during the compilation phase.
+
+function example() {
+    console.log(x); // undefined
+    var x = 10;
+    console.log(x); // 10
+}
+
+example();
+console.log(x); // Error: x is not defined
+
+let:
+Variables declared with let have block-level scope, meaning they are only accessible within the block they are defined in.
+They are not hoisted to the top of their containing block, and accessing them before the declaration results in a ReferenceError.
+let variables cannot be re-declared within the same scope.
+
+{
+    console.log(x); // ReferenceError: Cannot access 'x' before initialization
+    let x = 10;
+    console.log(x); // 10
+}
+
+console.log(x); // ReferenceError: x is not defined
+
+const:
+Variables declared with const also have block-level scope like let.
+They must be initialized with a value at the time of declaration, and once initialized, their value cannot be changed (though the properties of objects and arrays declared with const can be modified).
+Like let, const variables are not hoisted to the top of their containing block, and accessing them before the declaration results in a ReferenceError.
+const variables cannot be re-declared or reassigned.
+
+{
+    console.log(x); // ReferenceError: Cannot access 'x' before initialization
+    const x = 10;
+    console.log(x); // 10
+}
+
+console.log(x); // ReferenceError: x is not defined
+
+
+
+4. Explain with the example.
+var:
+function example() {
+    console.log(x); // undefined
+    var x = 10;
+    console.log(x); // 10
+}
+
+let:
+{
+    console.log(x); // ReferenceError: Cannot access 'x' before initialization
+    let x = 10;
+    console.log(x); // 10
+}
+
+console.log(x); // ReferenceError: x is not defined
+
+const:
+{
+    console.log(x); // ReferenceError: Cannot access 'x' before initialization
+    const x = 10;
+    console.log(x); // 10
+}
+
+console.log(x); // ReferenceError: x is not defined
+
+
+5. What is OOPS object oriented programming?
+
+Object-Oriented Programming (OOP) is a programming paradigm that organizes software design around objects and data, rather than logic and functions. It focuses on creating reusable, modular code by representing real-world entities as objects, which can have attributes (data) and methods (functions).
+
+OOP languages, such as Java, C++, Python, and JavaScript (to some extent), provide built-in support for these concepts, making it easier to implement OOP principles in software development. OOP promotes modular, scalable, and maintainable code, making it a popular choice for building large-scale applications.
+
+6. What are member variables?
+
+Member variables, also known as instance variables or attributes, are variables defined within a class in object-oriented programming. These variables hold data associated with individual objects (instances) of the class. Each object created from the class has its own copy of these member variables.
+
+Member variables define the state of objects and represent the properties or characteristics of the objects. They encapsulate the data relevant to the class and can have different values for each instance of the class.
+
+For example, in a class representing a car, member variables could include properties such as:
+
+make: the make of the car (e.g., Toyota, Ford)
+model: the model of the car (e.g., Camry, Mustang)
+year: the year of manufacture
+color: the color of the car
+
+7. What are member functions?
+
+Member functions, also known as methods, are functions defined within a class in object-oriented programming. These functions operate on the data (member variables) of the class and are used to implement behavior associated with the class.
+
+Member functions define the actions that objects of the class can perform. They encapsulate the functionality relevant to the class and can access and modify the member variables of the class.
+
+For example, in a class representing a car, member functions could include methods such as:
+
+start(): method to start the car
+stop(): method to stop the car
+accelerate(speed): method to increase the speed of the car
+brake(): method to apply brakes to the car
+
+8. what is a constructor?
+
+A constructor is a special type of method in object-oriented programming languages, used to initialize objects of a class. It is called automatically when a new instance (object) of the class is created. The primary purpose of a constructor is to set initial values for the member variables of the class and perform any necessary setup tasks.
+
+9. Example each concept of OOPS programming technique with an example?
+
+
