@@ -1,0 +1,112 @@
+1) what are data structures
+Data structures are ways of organizing and storing data in a computer so that it can be accessed and used efficiently. They provide a means to manage and manipulate data effectively. Data structures define the relationship between the data and the operations that can be performed on the data.
+
+2) what is the speciality tree data structure ? why it is used?
+
+The specialty of the tree data structure lies in its hierarchical organization. Unlike linear data structures such as arrays and linked lists, trees have a hierarchical structure with a root node, parent nodes, and child nodes. This hierarchical nature makes trees suitable for representing hierarchical relationships in data, such as folder structures, organizational charts, family trees, and more. Trees are used because they offer efficient insertion, deletion, and searching operations, making them ideal for scenarios where data needs to be organized in a hierarchical manner.
+
+3) what is a binary tree?
+A binary tree is a type of tree data structure in which each node has at most two children, referred to as the left child and the right child. The binary tree is recursively defined, meaning that each child of a node in the tree is also a binary tree.
+
+4) what is binary search tree?
+
+A binary search tree (BST) is a binary tree data structure with the following properties:
+
+The left subtree of a node contains only nodes with keys less than the node's key.
+The right subtree of a node contains only nodes with keys greater than the node's key.
+Both the left and right subtrees must also be binary search trees.
+The binary search tree property allows for efficient searching, insertion, and deletion operations.
+
+5) Construct a  binary tree structure of your own choice?
+         1
+        / \
+       2   3
+      / \
+     4   5
+
+6) write a program for tree traversal like inorder, postorder, preorder?
+
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+function inorder(node) {
+    if (node !== null) {
+        inorder(node.left);
+        console.log(node.data);
+        inorder(node.right);
+    }
+}
+
+function postorder(node) {
+    if (node !== null) {
+        postorder(node.left);
+        postorder(node.right);
+        console.log(node.data);
+    }
+}
+
+function preorder(node) {
+    if (node !== null) {
+        console.log(node.data);
+        preorder(node.left);
+        preorder(node.right);
+    }
+}
+
+
+const root = new Node(1);
+root.left = new Node(2);
+root.right = new Node(3);
+root.left.left = new Node(4);
+root.left.right = new Node(5);
+
+console.log("Inorder traversal:");
+inorder(root);
+console.log("Postorder traversal:");
+postorder(root);
+console.log("Preorder traversal:");
+preorder(root);
+
+7) write a program to find the height of a binary tree?
+
+function height(node) {
+    if (node === null) {
+        return -1;
+    }
+    const leftHeight = height(node.left);
+    const rightHeight = height(node.right);
+    return Math.max(leftHeight, rightHeight) + 1;
+}
+
+console.log("Height of the tree:", height(root));
+
+8) Given two tree structure check whether they are identical or not.
+
+function isIdentical(root1, root2) {
+    if (root1 === null && root2 === null) {
+        return true;
+    }
+    if (root1 === null || root2 === null) {
+        return false;
+    }
+    return (
+        root1.data === root2.data &&
+        isIdentical(root1.left, root2.left) &&
+        isIdentical(root1.right, root2.right)
+    );
+}
+
+const root1 = new Node(1);
+root1.left = new Node(2);
+root1.right = new Node(3);
+
+const root2 = new Node(1);
+root2.left = new Node(2);
+root2.right = new Node(3);
+
+console.log("Are the trees identical?", isIdentical(root1, root2));
