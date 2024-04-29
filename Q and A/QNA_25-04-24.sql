@@ -8,11 +8,13 @@ select * from customers
 where email like "%hln18@gmail.com%";
 
 -- Find customers who have not made any purchases within the last year:
-select * from customers
-where customerid not in(
-select distinct customerid
-from sales
-where saledate ;
+SELECT *
+FROM Customers
+WHERE CustomerID NOT IN (
+    SELECT DISTINCT CustomerID
+    FROM Sales
+    WHERE SaleDate >= DATE_SUB(NOW(), INTERVAL 1 YEAR)
+);
 
 
 -- List all customers who have spent more than a specific amount:
