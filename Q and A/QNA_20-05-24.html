@@ -1,0 +1,112 @@
+ <!-- Create a table with 4 columns (Product, Description, Price, Quantity) and 6 rows of data. 
+a. fixed header and a scrollable body
+b. with a caption and add CSS to style the caption and table borders.
+c. Apply CSS to alternate the background color of rows. -->
+
+<html>
+    <head>
+        <title> product table</title>
+        <style>
+       
+            th,td{
+                width:20%;
+                padding:8px;
+                text-align: left;
+                
+            }
+          
+            
+                tr:nth-child(even)
+                {
+                    background-color: aqua;
+                    color:black;
+                }
+                
+                
+            
+            th{
+                background-color: bisque;
+                top:0;
+            }
+            body{
+                scroll-behavior: auto;
+                margin:10px;
+                
+            }
+            head{
+                position: fixed;
+            }
+            caption{
+                caption-side: top;
+                font-size: 40px;
+                font-weight: bold;
+            
+            }
+            h2{
+                text-align: center;
+                text-decoration: underline;
+            }
+         
+            #mytable{
+                max-height: 250px;
+                overflow-y: auto;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                left:300px;
+            }
+            #product-table {
+                width:100%;
+                border-collapse: collapse;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <h2> Product table</h2>
+        <div id="mytable">
+        <table border id="product-table" >
+            <caption> Available products</caption>
+            <thead>
+            <tr>
+                <th> product</th>
+                <th> price</th>
+                <th> description</th>
+                <th> quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> laptop</td>
+                <td>9999</td>
+                <td> gaming laptop</td>
+                <td> 10</td>
+            </tr>
+            <tr>
+                <td> phone</td>
+                <td>9897</td>
+                <td> latest mobile</td>
+                <td> 15</td>
+            </tr>
+            <tr>
+                <td> bluetooth headset</td>
+                <td>987</td>
+                <td> latest headphone</td>
+                <td> 45</td>
+            </tr>
+            <tr>
+                <td> smart watch</td>
+                <td>8711</td>
+                <td> latest watch</td>
+                <td> 25</td>
+            </tr>
+            <tr>
+                <td> speaker</td>
+                <td>4561</td>
+                <td> latest speaker</td>
+                <td> 35</td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+    </body>
+</html>
